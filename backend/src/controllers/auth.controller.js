@@ -5,6 +5,9 @@ export const signup = async(req,res) => {
     const{fullName,email,password} = req.body
    try{
         //hash passord 
+        if(!fullName || ! email || !password){
+            return res.status(400).json({message:"All fields are required"});
+        }
         if(password.length<6){
             return res.status(400).json({ message:"password must be atleat 6 characters"});
         }
@@ -30,13 +33,15 @@ export const signup = async(req,res) => {
                     fullName:newUser.fullName,
                     email:newUser.email,
                     profilePic:newUser.profilePic,
-                   })
+                   });
             }else{
                  res.status(400).json({message:"invalid user data"});
             }
         }
         catch(error){
           console.log("Error in signup contrtoller",error.message)
+
+          res.sttus(500).json({message:"Internal Server Error"});
         }
    };
 
