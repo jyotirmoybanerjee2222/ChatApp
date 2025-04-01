@@ -43,7 +43,7 @@ export const signup = async(req,res) => {
         catch(error){
           console.log("Error in signup contrtoller",error.message)
 
-          res.sttus(500).json({message:"Internal Server Error"});
+          res.status(500).json({message:"Internal Server Error"});
         }
    };
 
@@ -72,7 +72,7 @@ export const login = async(req,res) => {
        })
     }catch(error){
         console.log("Error in login controller",error.message);
-        res.ststus(500).json({message:"Internal Server Erreor"});
+        res.status(500).json({message:"Internal Server Erreor"});
 
     }
 };
@@ -83,7 +83,7 @@ export const logout = (req,res) => {
 
     }catch(error){
         console.log("Error in logout controller",error.message);
-        res.ststus(500).json({message:"Internal Server error"});
+        res.status(500).json({message:"Internal Server error"});
     }
 };
 
